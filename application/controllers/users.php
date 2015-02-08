@@ -1,5 +1,9 @@
-<?php 
+<?php
 
+/* 
+ * This site is developed and maintained by DigitalFrame
+ * E-mail: digitalframe01@outlook.com
+ */
 class Users extends CI_Controller
 {
 
@@ -12,7 +16,7 @@ class Users extends CI_Controller
 				array(
 					'field' => 'username',
 					'label' => 'Username',
-					'rules' => 'trim|required|min_length[3]|is_unique[ci_users.username]'  
+					'rules' => 'trim|required|min_length[5]|is_unique[csdk275_user_registration.user_name]'  
 				),
 				array(
 					'field' => 'password',
@@ -25,14 +29,9 @@ class Users extends CI_Controller
 					'rules' => 'trim|required|min_length[5]|matches[password]'  
 				),
 				array(
-					'field' => 'usertype', // or is it user_type
-					'label' => 'User Type',
-					'rules' => 'required'  
-				),
-				array(
 					'field' => 'email',
 					'label' => 'Email',
-					'rules' => 'trim|required|is_unique[ci_users.email]|valid_email'  
+					'rules' => 'trim|required|is_unique[csdk275_user_registration.email]|valid_email'  
 				)
 
 			);
@@ -45,18 +44,16 @@ class Users extends CI_Controller
 			} else {
 
 				$data = array(
-					'username'	=>	$_POST['username'],
+					'user_name'	=>	$_POST['username'],
 					'password'	=>	sha1($_POST['password']),
-					'user_type'	=>	$_POST['usertype'],
 					'email'		=>	$_POST['email']
 
 				);
 
-				$this->load->model('user');
-				$user_id = $this->user->create_user($data);
-				$this->session->set_userdata('user_id', $user_id);
-				$this->session->set_userdata('user_type', $_POST['user_type']);
-				redirect(base_url().'posts');
+				$this->load->model('user_register');
+				$user_id = $this->user_register->create_user($data);
+				$this->session->set_userdata('user_registration_id', $user_id);
+				redirect(base_url().'users/register');
 			}
 		}
 
@@ -67,4 +64,3 @@ class Users extends CI_Controller
 
 	}
 }
- ?>
