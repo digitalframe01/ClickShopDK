@@ -16,7 +16,7 @@ class User_register extends CI_Model
 	function login($username, $password)
 	{
 		$where = array(
-			'username'	=>	$username,
+			'user_name'	=>	$username,
 			'password'	=>	sha1($password) //$password,
 		);
 
