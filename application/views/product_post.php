@@ -1,83 +1,344 @@
-<?php ?>
-
-/* 
+<!-- 
  * This site is developed and maintained by DigitalFrame
  * E-mail: digitalframe01@outlook.com
- */
- 
- 
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<title>Post your ad on free classified site of Bangladesh</title>
-<link rel="stylesheet" type="text/css" href="<? echo base_url();?>includes/css/category_menu.css">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="content-language" content="EN">
+-->
 
-<!--[if IE 8]>
-		<LINK rel="stylesheet" href="http://static.clickbd.com/global/css/clickbd.ie8.css" type="text/css" media="screen" />
-	<![endif]-->
-<!--[if IE 7]>
-		<LINK rel="stylesheet"  href="http://static.clickbd.com/global/css/clickbd.ie7.css" type="text/css" media="screen" />
-	<![endif]-->
-<!--[if IE 6]>
-		<LINK rel="stylesheet" href="http://static.clickbd.com/global/css/clickbd.ie6.css" type="text/css" media="screen" />
-	<![endif]-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="<? echo base_url();?>includes/js/category_menu.js"></script>
-   
-<script>eval(mod_pagespeed_KcrF6nu9VS);</script>
-<script>eval(mod_pagespeed_xWmye_2qtW);</script>
-<script>eval(mod_pagespeed_XonePe56TZ);</script>
-</head>
-<body class="body_bg_water">
 
-<div id="wrapper">
-<div class="section curve" id="choose_category">
+<div class="container">
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit">
+        <h1>Post Product</h1>
+        <hr>
+        <?php if (validation_errors()): ?>
+            <div class="alert alert-error">
+                <a class="close" data-dismiss="alert">&times;</a>
+                <strong>Error!</strong> <?php echo validation_errors(); ?>
+            </div>
+        <?php endif ?>
+        <?php
+        $frm_attr = array('class' => 'form-horizontal');
+        echo form_open(base_url() . 'users/register', $frm_attr);
+        ?>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('First Name', 'first name', $attributes);
+            ?>
 
-<div class="clr"></div>
-<div id="category-lists">
-<ul id="categories" class="level-one" style="margin-left: 0px;">
-    <li class=""><a href="#1" class="toggle-link">Agro &amp; Livestock</a></li>
-    <li><a href="#18" class="toggle-link">Cars &amp; Vehicles</a></li>
-    <li class="active"><a href="#72" class="toggle-link">Events</a></li>
-    <li class=""><a href="#80" class="toggle-link">For Sale</a></li>
-    <li><a href="#267" class="toggle-link">JOBS</a></li>
-    <li><a href="#299" class="toggle-link">Properties &amp; Rents</a></li>
-    <li><a href="#328" class="toggle-link">Services</a></li>
-</ul>
-    <ul id="1" class="level-two category" style="display: none;">
-    <li class=""><a href="#2" class="final-level toggle-link">Corn</a></li>
-    <li><a href="#3" class="final-level toggle-link">Fruit</a></li>
-    <li><a href="#4" class="final-level toggle-link">Mushroom</a></li>
-    <li><a href="#5" class="final-level toggle-link">Plants</a></li>
-    <li><a href="#6" class="final-level toggle-link">Poultry &amp; Live stocks</a></li>
-    <li><a href="#7" class="final-level toggle-link">Rice</a></li>
-    <li><a href="#8" class="final-level toggle-link">Shrimp</a></li>
-    <li class=""><a href="#9" class="toggle-link">Supplies</a></li>
-    <li><a href="#13" class="final-level toggle-link">Vegetable</a></li>
-    <li><a href="#14" class="final-level toggle-link">Wheat</a></li>
-    <li><a href="#15" class="final-level toggle-link">Fisheries</a></li>
-    <li><a href="#16" class="final-level toggle-link">Dairy</a></li>
-    <li><a href="#17" class="final-level toggle-link">Other Agro &amp; Livestock</a></li>
-    </ul>
-        <ul id="9" class="level-three category" style="display: none;">
-        <li><a href="#10" class="final-level toggle-link">Animal Feeds</a></li>
-        <li class=""><a href="#11" class="final-level toggle-link">Seeds</a></li>
-        <li><a href="#12" class="final-level toggle-link">Renu Pona</a></li>
-        </ul>
+            <div class="controls">
+                <?php
+                $in_first_name = array(
+                    'name' => 'first_name',
+                    'id' => 'first_name',
+                    'placeholder' => 'Your First Name',
+                    'value' => set_value('first_name')
+                );
+                echo form_input($in_first_name);
+                ?>
 
-<fieldset id="continue">
-<form id="category_form" action="/sell/post_an_ad/" method="get">
-<input value="#77" name="category_id" id="category_id" type="hidden">
-<div id="submit" class="warning ready">
-<button type="submit" name="continue" id="category_continue" class="button1 bgreen">Continue</button>
-<div id="warning-note" class="note">
-<p>
-Please select a category before continuing.
-</p>
-</div>
-</div>
-</form>
-</fieldset>
-</div>
-    
- </body></html>
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Last Name', 'last name', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_last_name = array(
+                    'name' => 'last_name',
+                    'id' => 'last_name',
+                    'placeholder' => 'Your Last Name',
+                    'value' => set_value('last_name')
+                );
+                echo form_input($in_last_name);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Display Name', 'display_name', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_display_name = array(
+                    'type' => 'text',
+                    'name' => 'display_name',
+                    'id' => 'display_name',
+                    'placeholder' => 'Display name',
+                    'value' => set_value('display_name')
+                );
+                echo form_input($in_display_name);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Comany Name', 'company_name', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_company_name = array(
+                    'type' => 'text',
+                    'name' => 'company_name',
+                    'id' => 'company_name',
+                    'placeholder' => 'Company name',
+                    'value' => set_value('company_name')
+                );
+                echo form_input($in_company_name);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Address', 'address', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_address_1 = array(
+                    'name' => 'address_1',
+                    'id' => 'address_1',
+                    'placeholder' => 'Address 1',
+                    'value' => set_value('address_1')
+                );
+                echo form_input($in_address_1);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Address', 'address', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_address_2 = array(
+                    'name' => 'address_2',
+                    'id' => 'address_2',
+                    'placeholder' => 'Address 2',
+                    'value' => set_value('address_2')
+                );
+                echo form_input($in_address_2);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('ZipCode', 'zip_code', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_zip_code = array(
+                    'name' => 'zip_code',
+                    'id' => 'zip_code',
+                    'placeholder' => 'Zip Code'
+                );
+                echo form_input($in_zip_code);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('City', 'city', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_city = array(
+                    'name' => 'city',
+                    'id' => 'city',
+                    'placeholder' => 'City'
+                );
+                echo form_input($in_city);
+                ?>
+
+            </div>
+        </div>
+
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Phone', 'phone', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_phone = array(
+                    'name' => 'phone',
+                    'id' => 'phone',
+                    'placeholder' => 'Phone'
+                );
+                echo form_input($in_phone);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('fax', 'fax', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_fax = array(
+                    'name' => 'fax',
+                    'id' => 'fax',
+                    'placeholder' => 'Fax'
+                );
+                echo form_input($in_fax);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Email', 'email', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_email = array(
+                    'type' => 'text',
+                    'name' => 'email',
+                    'id' => 'email',
+                    'placeholder' => 'Email Address',
+                    'value' => set_value('email')
+                );
+                echo form_input($in_email);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Username', 'user_name', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_user = array(
+                    'type' => 'text',
+                    'name' => 'user_name',
+                    'id' => 'user_name',
+                    'placeholder' => 'Username',
+                    'value' => set_value('user_name')
+                );
+                echo form_input($in_user);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Password', 'password', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_pass = array(
+                    'name' => 'password',
+                    'id' => 'password',
+                    'placeholder' => 'Password'
+                );
+                echo form_password($in_pass);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <?php
+            $attributes = array(
+                'class' => 'control-label'
+            );
+            echo form_label('Confirm Password', 'passwordc', $attributes);
+            ?>
+
+            <div class="controls">
+                <?php
+                $in_passc = array(
+                    'name' => 'passwordc',
+                    'id' => 'passwordc',
+                    'placeholder' => 'Confirm Password'
+                );
+                echo form_password($in_passc);
+                ?>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+
+                <?php
+                $btn_data = array(
+                    'type' => 'submit',
+                    'content' => 'Register',
+                    'class' => 'btn'
+                );
+                echo form_button($btn_data);
+                ?>
+            </div>
+        </div>
+        <?php
+        $this->load->helper('date');
+        $datestring = "%Y-%m-%d";
+        $time = time();
+        $today = mdate($datestring, $time);
+        $data = array(
+            'active' => 'a',
+            'user_reg_date' => "$today",
+            'user_type' => 'subscriber'
+        );
+
+        echo form_hidden($data);
+        ?>
+<?php echo form_close() ?>
+    </div>
+
+
